@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:52:13 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/16 19:06:58 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:11:28 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ int	read_input(t_op **op, char **op_list)
 	{
 		line = get_next_line(STDIN_FILENO);
 		if (!line)
-			break ;
+			return (0);
 		ret = find_op(line, op_list);
+		free(line);
 		if (ret == -1)
 			return (1);
 		cur = malloc(sizeof(*cur));
@@ -86,7 +87,6 @@ int	read_input(t_op **op, char **op_list)
 		cur->op = ret;
 		last = cur;
 	}
-	return (0);
 }
 
 void	apply_input(t_checker *d)
