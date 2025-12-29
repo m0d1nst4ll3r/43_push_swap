@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:04:54 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/16 19:13:08 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:55:16 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ int	main(int ac, char **av)
 		ft_printf(KO);
 	else
 		ft_printf(OK);
-	exit_prog(d);
+	exit_prog(d, 0);
 }

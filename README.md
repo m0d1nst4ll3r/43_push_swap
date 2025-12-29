@@ -26,4 +26,4 @@ Divide your numbers in 3 groups, one lowest, one highest, one middle group. Star
 
 ### Tester
 
-https://github.com/SimonCROS/push\_swap\_tester
+https://github.com/SimonCROS/push_swap_tester

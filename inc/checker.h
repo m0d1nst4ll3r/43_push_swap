@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:50:10 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/16 18:53:04 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:55:37 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_stack
 
 typedef struct s_op
 {
-	int			op;
-	struct s_op	*next;
+	unsigned char	op;
+	struct s_op		*next;
 }	t_op;
 
 typedef struct s_checker
@@ -71,7 +71,10 @@ int		ft_atoi_strict(char *s, int *n);
 t_stack	*get_last(t_stack *stack);
 t_stack	*get_before_last(t_stack *stack);
 
-// ops.c ops2.c
+// ops_p.c
+// ops_r.c
+// ops_rr.c
+// ops_s.c
 void	do_sa(t_checker *d);
 void	do_sb(t_checker *d);
 void	do_ss(t_checker *d);
@@ -92,7 +95,7 @@ void	apply_input(t_checker *d);
 int		is_sorted(t_stack *stack);
 
 // exit.c
-void	exit_prog(t_checker d);
+void	exit_prog(t_checker d, unsigned char retval);
 void	error_out(t_checker d);
 
 #endif

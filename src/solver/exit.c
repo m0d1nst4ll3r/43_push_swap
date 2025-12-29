@@ -5,21 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 16:03:44 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/22 16:55:59 by rapohlen         ###   ########.fr       */
+/*   Created: 2025/12/22 16:53:36 by rapohlen          #+#    #+#             */
+/*   Updated: 2025/12/22 16:59:24 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "solver.h"
 
-static void	free_stack(t_stack *stack)
+static void	free_stack(t_stack *begin)
 {
+	t_stack	*cur;
 	t_stack	*last;
 
-	while (stack)
+	cur = begin;
+	while (cur != begin)
 	{
-		last = stack;
-		stack = stack->next;
+		last = cur;
+		cur = cur->next;
 		free(last);
 	}
 }
@@ -38,9 +40,13 @@ static void	free_op(t_op *op)
 
 void	exit_prog(t_checker d, unsigned char retval)
 {
+	if (d.lis_len)
+		free(d.lis_len);
+	if (d.lis_sub)
+		free(d.lis_sub);
 	free_stack(d.stacka);
 	free_stack(d.stackb);
-	free_op(d.op);
+	free_op(d.op_list);
 	exit(retval);
 }
 
