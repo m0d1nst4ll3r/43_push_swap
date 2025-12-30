@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_p.c                                            :+:      :+:    :+:   */
+/*   op_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:10:49 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/22 22:00:27 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:44:13 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void	do_px(t_stack **stack_from, t_stack **stack_to)
 
 void	do_pa(t_solver *d)
 {
-	add_op(d, PA_KEY);
+	add_op(d, PA);
 	do_px(&d->stackb, &d->stacka);
 }
 
 void	do_pb(t_solver *d)
 {
-	add_op(d, PB_KEY);
+	add_op(d, PB);
 	do_px(&d->stacka, &d->stackb);
 }

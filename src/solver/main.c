@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 12:10:05 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:43:37 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 {
-	op_strings[SA_KEY] = SA_STR;
-	op_strings[SB_KEY] = SB_STR;
-	op_strings[RA_KEY] = RA_STR;
-	op_strings[RB_KEY] = RB_STR;
-	op_strings[RR_KEY] = RR_STR;
-	op_strings[RRA_KEY] = RRA_STR;
-	op_strings[RRB_KEY] = RRB_STR;
-	op_strings[RRR_KEY] = RRR_STR;
-	op_strings[PA_KEY] = PA_STR;
-	op_strings[PB_KEY] = PB_STR;
-	op_funcs[SA_KEY] = do_sa;
-	op_funcs[SB_KEY] = do_sb;
-	op_funcs[RA_KEY] = do_ra;
-	op_funcs[RB_KEY] = do_rb;
-	op_funcs[RR_KEY] = do_rr;
-	op_funcs[RRA_KEY] = do_rra;
-	op_funcs[RRB_KEY] = do_rrb;
-	op_funcs[RRR_KEY] = do_rrr;
-	op_funcs[PA_KEY] = do_pa;
-	op_funcs[PB_KEY] = do_pb;
+	op_strings[SA] = SA_STR;
+	op_strings[SB] = SB_STR;
+	op_strings[RA] = RA_STR;
+	op_strings[RB] = RB_STR;
+	op_strings[RR] = RR_STR;
+	op_strings[RRA] = RRA_STR;
+	op_strings[RRB] = RRB_STR;
+	op_strings[RRR] = RRR_STR;
+	op_strings[PA] = PA_STR;
+	op_strings[PB] = PB_STR;
+	op_funcs[SA] = do_sa;
+	op_funcs[SB] = do_sb;
+	op_funcs[RA] = do_ra;
+	op_funcs[RB] = do_rb;
+	op_funcs[RR] = do_rr;
+	op_funcs[RRA] = do_rra;
+	op_funcs[RRB] = do_rrb;
+	op_funcs[RRR] = do_rrr;
+	op_funcs[PA] = do_pa;
+	op_funcs[PB] = do_pb;
 }
 
 static void	init_prog(t_solver *d, int ac, char **av)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_r.c                                            :+:      :+:    :+:   */
+/*   op_r.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:11:44 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 09:45:06 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:44:21 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ static void	do_rx(t_stack **head)
 
 void	do_ra(t_solver *d)
 {
-	add_op(d, RA_KEY);
+	add_op(d, RA);
 	do_rx(&d->stacka);
 }
 
 void	do_rb(t_solver *d)
 {
-	add_op(d, RB_KEY);
+	add_op(d, RB);
 	do_rx(&d->stackb);
 }
 
 void	do_rr(t_solver *d)
 {
-	add_op(d, RR_KEY);
+	add_op(d, RR);
 	do_rx(&d->stacka);
 	do_rx(&d->stackb);
 }

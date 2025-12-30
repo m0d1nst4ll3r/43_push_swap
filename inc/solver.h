@@ -6,34 +6,35 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:53:10 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 22:43:57 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:42:40 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLVER_H
 # define SOLVER_H
 
+# define PA_STR		"pa"
+# define PB_STR		"pb"
 # define SA_STR		"sa"
 # define SB_STR		"sb"
+# define SS_STR		"ss"
 # define RA_STR		"ra"
 # define RB_STR		"rb"
 # define RR_STR		"rr"
 # define RRA_STR	"rra"
 # define RRB_STR	"rrb"
 # define RRR_STR	"rrr"
-# define PA_STR		"pa"
-# define PB_STR		"pb"
-# define SA_KEY		0
-# define SB_KEY		1
-# define SS_KEY		2
-# define RA_KEY		3
-# define RB_KEY		4
-# define RR_KEY		5
-# define RRA_KEY	6
-# define RRB_KEY	7
-# define RRR_KEY	8
-# define PA_KEY		9
-# define PB_KEY		10
+# define PA			0
+# define PB			1
+# define SA			2
+# define SB			3
+# define SS			4
+# define RA			5
+# define RB			6
+# define RR			7
+# define RRA		8
+# define RRB		9
+# define RRR		10
 # define N_OP		11
 # define ERROR		"Error\n"
 
@@ -172,6 +173,7 @@ int		is_reverse_sorted(t_stack *head);
 
 // op_util.c
 void	add_op(t_solver *d, unsigned char op);
+void	del_op(t_op **list, t_op *to_remove);
 void	print_op_list(t_op *list, char *op_strings[N_OP]);
 
 // op_timize.c

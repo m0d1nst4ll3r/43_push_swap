@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 11:22:54 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 12:00:43 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:05:09 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	add_op(t_solver *d, unsigned char op)
 		new->prev = d->last_op;
 	}
 	d->last_op = new;
+}
+
+void	del_op(t_op **list, t_op *to_remove)
+{
+	if (*list == to_remove)
+		*list = to_remove->next;
+	else
+		to_remove->prev->next = to_remove->next;
+	if (to_remove->next)
+		to_remove->next->prev = to_remove->prev;
+	free(to_remove);
 }
 
 void	print_op_list(t_op *list, char *op_strings[N_OP])

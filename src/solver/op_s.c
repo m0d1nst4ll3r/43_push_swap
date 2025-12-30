@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:57:51 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/30 15:30:41 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:44:39 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ static void	do_sx(t_stack **head)
 
 void	do_sa(t_solver *d)
 {
-	add_op(d, SA_KEY);
+	add_op(d, SA);
 	do_sx(&d->stacka);
 }
 
 void	do_sb(t_solver *d)
 {
-	add_op(d, SB_KEY);
+	add_op(d, SB);
 	do_sx(&d->stackb);
 }
 
 void	do_ss(t_solver *d)
 {
-	add_op(d, SS_KEY);
+	add_op(d, SS);
 	do_sx(&d->stacka);
 	do_sx(&d->stackb);
 }
