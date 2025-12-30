@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 16:53:36 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/22 16:59:24 by rapohlen         ###   ########.fr       */
+/*   Updated: 2025/12/30 15:32:23 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	free_op(t_op *op)
 	}
 }
 
-void	exit_prog(t_checker d, unsigned char retval)
+void	exit_prog(t_solver d, unsigned char retval)
 {
 	if (d.lis_len)
 		free(d.lis_len);
@@ -50,7 +50,7 @@ void	exit_prog(t_checker d, unsigned char retval)
 	exit(retval);
 }
 
-void	error_out(t_checker d)
+void	error_out(t_solver d)
 {
 	ft_fprintf(2, ERROR);
 	exit_prog(d, 1);
