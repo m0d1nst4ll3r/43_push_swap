@@ -16,6 +16,7 @@ static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 {
 	op_strings[SA] = SA_STR;
 	op_strings[SB] = SB_STR;
+	op_strings[SB] = SS_STR;
 	op_strings[RA] = RA_STR;
 	op_strings[RB] = RB_STR;
 	op_strings[RR] = RR_STR;
@@ -26,6 +27,7 @@ static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 	op_strings[PB] = PB_STR;
 	op_funcs[SA] = do_sa;
 	op_funcs[SB] = do_sb;
+	op_funcs[SS] = do_ss;
 	op_funcs[RA] = do_ra;
 	op_funcs[RB] = do_rb;
 	op_funcs[RR] = do_rr;
