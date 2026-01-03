@@ -32,17 +32,6 @@ void	add_op(t_solver *d, unsigned char op)
 	d->last_op = new;
 }
 
-void	del_op(t_op **list, t_op *to_remove)
-{
-	if (*list == to_remove)
-		*list = to_remove->next;
-	else
-		to_remove->prev->next = to_remove->next;
-	if (to_remove->next)
-		to_remove->next->prev = to_remove->prev;
-	free(to_remove);
-}
-
 void	print_op_list(t_op *list, char *op_strings[N_OP])
 {
 	while (list)

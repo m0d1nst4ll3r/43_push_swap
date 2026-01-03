@@ -173,7 +173,6 @@ int		is_reverse_sorted(t_stack *head);
 
 // op_util.c
 void	add_op(t_solver *d, unsigned char op);
-void	del_op(t_op **list, t_op *to_remove);
 void	print_op_list(t_op *list, char *op_strings[N_OP]);
 
 // op_timize.c
