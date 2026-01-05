@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rr.c                                            :+:      :+:    :+:   */
+/*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 18:07:51 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/05 19:54:59 by rapohlen         ###   ########.fr       */
+/*   Created: 2026/01/04 15:25:41 by rapohlen          #+#    #+#             */
+/*   Updated: 2026/01/04 15:47:16 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-static int	do_rrx(t_stack **head)
+static int	fill_pivot_arr(t_stack *head, int *arr)
 {
-	if (!*head || (*head)->next == *head)
-		return (0);
-	*head = (*head)->prev;
-	return (1);
+	t_stack *cur;
+	int		i;
+
+	i = 0;
+	cur = head;
+	while (1)
+	{
+		if (!cur->lis)
+		{
+			arr[i] = cur->val;
+			i++;
+		}
+		cur = cur->next;
+		if (cur == head)
+			break ;
+	}
 }
 
-void	do_rra(t_solver *d)
+int	get_pivot(t_stack *head, int *arr)
 {
-	if (do_rrx(&d->stacka))
-		add_op(d, RRA);
-}
+	int	len;
 
-void	do_rrb(t_solver *d)
-{
-	if (do_rrx(&d->stackb))
-		add_op(d, RRB);
-}
-
-// Reminder: we will optimize op list anyway, it's fine not to write RRR yet
-void	do_rrr(t_solver *d)
-{
-	do_rra(d);
-	do_rrb(d);
+	len = fill_pivot_arr(head, arr);
+	ft_select_sort(arr, len);
+	return (arr[len / 2])
 }

@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rr.c                                            :+:      :+:    :+:   */
+/*   op.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 18:07:51 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/05 19:54:59 by rapohlen         ###   ########.fr       */
+/*   Created: 2026/01/04 15:51:09 by rapohlen          #+#    #+#             */
+/*   Updated: 2026/01/04 15:51:59 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-static int	do_rrx(t_stack **head)
+void	do_op(t_solver *d, unsigned char op)
 {
-	if (!*head || (*head)->next == *head)
-		return (0);
-	*head = (*head)->prev;
-	return (1);
-}
-
-void	do_rra(t_solver *d)
-{
-	if (do_rrx(&d->stacka))
-		add_op(d, RRA);
-}
-
-void	do_rrb(t_solver *d)
-{
-	if (do_rrx(&d->stackb))
-		add_op(d, RRB);
-}
-
-// Reminder: we will optimize op list anyway, it's fine not to write RRR yet
-void	do_rrr(t_solver *d)
-{
-	do_rra(d);
-	do_rrb(d);
+	d->op_funcs[op](d);
 }

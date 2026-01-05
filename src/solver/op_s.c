@@ -6,18 +6,18 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:57:51 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/30 16:44:39 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/05 19:57:03 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-static void	do_sx(t_stack **head)
+static int	do_sx(t_stack **head)
 {
 	t_stack	*tmp;
 
 	if (!*head || (*head)->next == *head)
-		return ;
+		return (0);
 	tmp = (*head)->next;
 	if ((*head)->next != (*head)->prev)
 	{
@@ -29,23 +29,24 @@ static void	do_sx(t_stack **head)
 		tmp->next = *head;
 	}
 	*head = tmp;
+	return (1);
 }
 
 void	do_sa(t_solver *d)
 {
-	add_op(d, SA);
-	do_sx(&d->stacka);
+	if (do_sx(&d->stacka))
+		add_op(d, SA);
 }
 
 void	do_sb(t_solver *d)
 {
-	add_op(d, SB);
-	do_sx(&d->stackb);
+	if (do_sx(&d->stackb))
+		add_op(d, SB);
 }
 
+// Reminder: we will optimize op list anyway, it's fine not to write SS yet
 void	do_ss(t_solver *d)
 {
-	add_op(d, SS);
-	do_sx(&d->stacka);
-	do_sx(&d->stackb);
+	do_sa(d);
+	do_sb(d);
 }

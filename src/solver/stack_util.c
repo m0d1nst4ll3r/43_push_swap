@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_util.c                                        :+:      :+:    :+:   */
+/*   stack_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:05:59 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 11:25:01 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/04 13:16:05 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,19 @@ t_stack	*stack_unlink(t_stack **head)
 		unlinked->prev = unlinked;
 	}
 	return (unlinked);
+}
+
+int	is_reverse_sorted(t_stack *head)
+{
+	t_stack *cur;
+
+	cur = head;
+	while (1)
+	{
+		if (cur->next != head && cur->val < cur->next->val)
+			return (0);
+		cur = cur->next;
+		if (cur == head)
+			return (1);
+	}
 }

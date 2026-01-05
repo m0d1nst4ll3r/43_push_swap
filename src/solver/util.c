@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 09:50:22 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/23 11:23:19 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/04 13:17:59 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,11 @@ int	bsearch_higher(int *arr, int len, int val)
 	return (-1);
 }
 
-int	is_reverse_sorted(t_stack *head)
+void	fill_int_array(int *arr, int len, int val)
 {
-	t_stack *cur;
+	int	i;
 
-	cur = head;
-	while (1)
-	{
-		if (cur->next != head && cur->val < cur->next->val)
-			return (0);
-		cur = cur->next;
-		if (cur == head)
-			return (1);
-	}
+	i = 0;
+	while (i < len)
+		arr[i++] = val;
 }

@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/30 16:43:37 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:01:16 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 {
+	op_strings[PA] = PA_STR;
+	op_strings[PB] = PB_STR;
 	op_strings[SA] = SA_STR;
 	op_strings[SB] = SB_STR;
 	op_strings[SB] = SS_STR;
@@ -23,8 +25,8 @@ static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 	op_strings[RRA] = RRA_STR;
 	op_strings[RRB] = RRB_STR;
 	op_strings[RRR] = RRR_STR;
-	op_strings[PA] = PA_STR;
-	op_strings[PB] = PB_STR;
+	op_funcs[PA] = do_pa;
+	op_funcs[PB] = do_pb;
 	op_funcs[SA] = do_sa;
 	op_funcs[SB] = do_sb;
 	op_funcs[SS] = do_ss;
@@ -34,8 +36,6 @@ static void	init_op(char *op_strings[N_OP], void (*op_funcs[N_OP])(t_solver *))
 	op_funcs[RRA] = do_rra;
 	op_funcs[RRB] = do_rrb;
 	op_funcs[RRR] = do_rrr;
-	op_funcs[PA] = do_pa;
-	op_funcs[PB] = do_pb;
 }
 
 static void	init_prog(t_solver *d, int ac, char **av)
@@ -64,12 +64,12 @@ int	main(int ac, char **av)
 	init_prog(&data, ac, av);
 	build_stack(&data);
 	if (data.num_elem > 1 && is_reverse_sorted(data.stacka))
-		do_sa(&data);
-	write_lis(); // TODO
-	// pivot
-	// push ahead
-	// push back
-	// rotate back into order
+		do_op(&data, SA);
+	write_lis(data);
+	data.pivot = get_pivot(data.stacka, data.lis_len);
+	push_ahead(&data);
+	push_back(&data); // LAST TODO HARDEST PART
+	final_rotate(&data);
 	optimize_op_list(&data.op_list);
 	print_op_list(data.op_list, data.op_strings);
 }
