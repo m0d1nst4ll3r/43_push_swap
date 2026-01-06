@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 14:49:07 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/04 15:20:38 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:00:35 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
  *
  * For descriptions of algorithm #1 and #2, see their respective functions.
  */
-void	write_lis(t_solver d);
+void	write_lis(t_solver d)
 {
 	t_stack	*lis_addr;
 

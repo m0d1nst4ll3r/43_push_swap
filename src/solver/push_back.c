@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 20:12:23 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 04:52:57 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:53:03 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	get_stack_len(t_stack *stack)
 	int		i;
 	t_stack	*iter;
 
+	if (!stack)
+		return (0);
 	i = 1;
 	iter = stack->next;
 	while (iter != stack)

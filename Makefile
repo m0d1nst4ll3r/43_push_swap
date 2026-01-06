@@ -6,7 +6,7 @@
 #    By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 10:29:07 by rapohlen          #+#    #+#              #
-#    Updated: 2026/01/06 05:01:00 by rapohlen         ###   ########.fr        #
+#    Updated: 2026/01/06 14:58:26 by rapohlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,12 +42,11 @@ CFILESSO			= main.c \
 
 SRCDIRCH			= src/checker
 SRCDIRSO			= src/solver
-BUILDDIR			= .build
 
 SRCCH				= $(addprefix $(SRCDIRCH)/, $(CFILESCH))
 SRCSO				= $(addprefix $(SRCDIRSO)/, $(CFILESSO))
-OBJCH				= $(SRCCH:$(SRCDIRCH)/%.c=$(BUILDDIR)/%.o)
-OBJSO				= $(SRCSO:$(SRCDIRSO)/%.c=$(BUILDDIR)/%.o)
+OBJCH				= $(SRCCH:.c=.o)
+OBJSO				= $(SRCSO:.c=.o)
 OBJ					= $(OBJCH) $(OBJSO)
 DEP					= $(OBJ:.o=.d)
 
@@ -75,17 +74,13 @@ $(NAMESO):			$(OBJSO) $(LIB)
 $(LIB):
 					$(MAKE) -C $(@D)
 
-$(BUILDDIR)/%.o:	$(SRCDIRCH)/%.c
-					@mkdir -p $(@D)
-					$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-
 clean:
 					@for f in $(dir $(LIB)); do $(MAKE) -C $$f clean; done
-					rm -rf $(BUILDDIR)
+					rm -f $(OBJ) $(DEP)
 
 fclean:
 					@for f in $(dir $(LIB)); do $(MAKE) -C $$f fclean; done
-					rm -rf $(NAME) $(BUILDDIR)
+					rm -rf $(NAME) $(OBJ) $(DEP)
 
 re:
 					$(MAKE) fclean

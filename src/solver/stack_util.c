@@ -6,13 +6,13 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:05:59 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/04 13:16:05 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:02:48 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-t_stack *stack_new(int val)
+t_stack	*stack_new(int val)
 {
 	t_stack	*new;
 
@@ -75,7 +75,7 @@ t_stack	*stack_unlink(t_stack **head)
 
 int	is_reverse_sorted(t_stack *head)
 {
-	t_stack *cur;
+	t_stack	*cur;
 
 	cur = head;
 	while (1)

@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:48:29 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/05 19:59:07 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:55:52 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	get_end_index(t_stack *head, int num_elem)
 	int		end;
 	int		i;
 
-	end = 0;
+	end = -1;
 	i = 0;
 	while (i < num_elem)
 	{
-		if (!cur->lis)
+		if (!head->lis)
 			end = i;
-		cur = cur->next;
+		head = head->next;
 		i++;
 	}
 	return (end);
@@ -64,6 +64,8 @@ void	push_ahead(t_solver *d)
 			if (cur->val < d->pivot)
 				do_op(d, RB);
 		}
+		else
+			do_op(d, RA);
 		cur = next;
 		i++;
 	}

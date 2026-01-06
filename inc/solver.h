@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:53:10 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 04:44:23 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:06:09 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define A			0
 # define B			1
 
-#include <stdbool.h>
-#include "libft.h"
+# include <stdbool.h>
+# include "libft.h"
 
 /*	PuSH_SWaP - v1
  *
@@ -145,7 +145,7 @@ int		bsearch_higher(int *arr, int len, int val);
 void	fill_int_array(int *arr, int len, int val);
 
 // stack_util.c
-t_stack *stack_new(int val);
+t_stack	*stack_new(int val);
 void	stack_add_front(t_stack **head, t_stack *elem);
 void	stack_add_back(t_stack **head, t_stack *elem);
 t_stack	*stack_unlink(t_stack **head);
@@ -185,8 +185,8 @@ void	build_stack(t_solver *d);
 t_stack	*get_lis_addr(t_stack *head, int *arr);
 void	get_lis_values(t_solver d, t_stack *head);
 void	write_boolean_flags(t_stack *head, int *lis_len, int *lis_sub,
-		int num_elem);
-void	write_lis(t_solver *d);
+			int num_elem);
+void	write_lis(t_solver d);
 
 // pivot.c
 int		get_pivot(t_stack *head, int *arr);

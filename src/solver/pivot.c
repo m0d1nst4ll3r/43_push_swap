@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:25:41 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/04 15:47:16 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:08:58 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	fill_pivot_arr(t_stack *head, int *arr)
 {
-	t_stack *cur;
+	t_stack	*cur;
 	int		i;
 
 	i = 0;
@@ -28,7 +28,7 @@ static int	fill_pivot_arr(t_stack *head, int *arr)
 		}
 		cur = cur->next;
 		if (cur == head)
-			break ;
+			return (i);
 	}
 }
 
@@ -38,5 +38,5 @@ int	get_pivot(t_stack *head, int *arr)
 
 	len = fill_pivot_arr(head, arr);
 	ft_select_sort(arr, len);
-	return (arr[len / 2])
+	return (arr[len / 2]);
 }

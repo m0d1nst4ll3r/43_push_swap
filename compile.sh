@@ -1,1 +1,0 @@
-cc -g -Wall -Wextra -Werror main.c src/solver/op_timize.c src/solver/op_p.c src/solver/op_r.c src/solver/op_rr.c src/solver/op_s.c src/solver/op_util.c src/solver/exit.c src/solver/stack_util.c libft/libft.a -I inc -I libft/inc

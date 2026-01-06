@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 04:53:46 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:53:14 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ int	main(int ac, char **av)
 	final_rotate(&data);
 	optimize_op_list(&data.op_list);
 	print_op_list(data.op_list, data.op_strings);
+	exit_prog(data, 0);
 }

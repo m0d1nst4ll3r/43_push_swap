@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 12:00:20 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/30 16:46:43 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:02:07 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	merge_rota(t_op *cur)
 			return (1);
 		}
 		else if ((cur->op == RRA && match->op == RRB)
-				|| (cur->op == RRB && match->op == RRA))
+			|| (cur->op == RRB && match->op == RRA))
 		{
 			cur->op = RRR;
 			del_op(NULL, match);
@@ -79,14 +79,14 @@ static int	merge_swap(t_op *cur)
 		return (1);
 	}
 	else if ((cur->op == SA && cur->next->op == SS)
-			|| (cur->op == SS && cur->next->op == SA))
+		|| (cur->op == SS && cur->next->op == SA))
 	{
 		cur->op = SB;
 		del_op(NULL, cur->next);
 		return (1);
 	}
 	else if ((cur->op == SB && cur->next->op == SS)
-			|| (cur->op == SS && cur->next->op == SB))
+		|| (cur->op == SS && cur->next->op == SB))
 	{
 		cur->op = SA;
 		del_op(NULL, cur->next);

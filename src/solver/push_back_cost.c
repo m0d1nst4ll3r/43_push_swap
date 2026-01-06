@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 22:40:44 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 04:42:10 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:10:10 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static int	get_insert_index(t_stack *stacka, int bval, int alen)
 	while (i < alen)
 	{
 		stacka = stacka->next;
-		if ((min_val < bval && stacka->val < min_val)
-			|| (stacka->val > bval && (min_val < bval || stacka->val < min_val)))
+		if ((stacka->val > bval && (min_val < bval || stacka->val < min_val))
+			|| (min_val < bval && stacka->val < min_val))
 		{
 			min_i = i;
 			min_val = stacka->val;
@@ -123,9 +123,9 @@ static void	compute_cost(int *index, int *len, int *rot, int *lowest_cost)
 	tcost[2] = rcost[0] + rcost[3];
 	tcost[3] = rcost[2] + rcost[1];
 	min_cost = ft_min(ft_min(tcost[0], tcost[1]), ft_min(tcost[2], tcost[3]));
-	if (!index[B] || min_cost < lowest_cost)
+	if (!index[B] || min_cost < *lowest_cost)
 	{
-		lowest_cost = min_cost;
+		*lowest_cost = min_cost;
 		update_cost(tcost, rcost, rot, min_cost);
 	}
 }
@@ -160,7 +160,7 @@ void	compute_next_move(t_stack *stacka, t_stack *stackb, int *len, int *rot)
 	while (index[B] < len[B])
 	{
 		if (!index[B] || index[B] < lowest_cost
-				|| ft_abs(index[B] - len[B]) < lowest_cost)
+			|| ft_abs(index[B] - len[B]) < lowest_cost)
 		{
 			index[A] = get_insert_index(stacka, stackb->val, len[A]);
 			compute_cost(index, len, rot, &lowest_cost);

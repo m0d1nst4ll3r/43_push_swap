@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 16:53:36 by rapohlen          #+#    #+#             */
-/*   Updated: 2025/12/30 15:32:23 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:27:09 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ static void	free_stack(t_stack *begin)
 	t_stack	*cur;
 	t_stack	*last;
 
+	if (!begin)
+		return ;
 	cur = begin;
-	while (cur != begin)
+	while (1)
 	{
 		last = cur;
 		cur = cur->next;
 		free(last);
+		if (cur == begin)
+			return ;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:48:04 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/04 15:24:03 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:12:01 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,10 +176,10 @@ static void	lis_compare_loop(t_solver d, t_stack *elem_j, t_stack *elem_i,
 	{
 		if (elem_j->val < elem_i->val)
 		{
-			if (lis_len[j] + 1 > lis_len[i])
+			if (d.lis_len[j] + 1 > d.lis_len[i])
 			{
-				lis_len[i] = lis_len[j] + 1;
-				lis_sub[i] = j;
+				d.lis_len[i] = d.lis_len[j] + 1;
+				d.lis_sub[i] = j;
 			}
 		}
 		j++;
@@ -198,7 +198,7 @@ void	get_lis_values(t_solver d, t_stack *head)
 	i = 1;
 	while (elem_i != head)
 	{
-		lis_compare_loop(data, head, elem_i, i);
+		lis_compare_loop(d, head, elem_i, i);
 		i++;
 		elem_i = elem_i->next;
 	}
