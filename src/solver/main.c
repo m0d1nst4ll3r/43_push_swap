@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 17:53:14 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 20:30:28 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ static void	init_prog(t_solver *d, int ac, char **av)
 		error_out(*d);
 }
 
+static void	optimize_3(t_solver *d, t_stack *head)
+{
+	if (head->val > head->next->val
+		&& head->val < head->prev->val)
+		do_op(d, SA);
+	else if (head->prev->val > head->val
+			&& head->prev->val < head->next->val)
+	{
+		do_op(d, RRA);
+		do_op(d, SA);
+	}
+}
+
 // See header file for program steps
 int	main(int ac, char **av)
 {
@@ -66,6 +79,8 @@ int	main(int ac, char **av)
 	build_stack(&data);
 	if (data.num_elem > 1 && is_reverse_sorted(data.stacka))
 		do_op(&data, SA);
+	else if (data.num_elem == 3)
+		optimize_3(&data, data.stacka);
 	write_lis(data);
 	data.pivot = get_pivot(data.stacka, data.lis_len);
 	push_ahead(&data);
