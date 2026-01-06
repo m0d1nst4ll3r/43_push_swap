@@ -6,13 +6,13 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:51:09 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/04 15:51:59 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 04:43:50 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-void	do_op(t_solver *d, unsigned char op)
+void	do_op(t_solver *d, char op)
 {
-	d->op_funcs[op](d);
+	d->op_funcs[(unsigned char)op](d);
 }

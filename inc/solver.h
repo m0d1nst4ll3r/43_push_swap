@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:53:10 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/05 20:17:30 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 04:44:23 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define RRR		10
 # define N_OP		11
 # define ERROR		"Error\n"
+# define A			0
+# define B			1
 
 #include <stdbool.h>
 #include "libft.h"
@@ -172,7 +174,7 @@ void	do_rrb(t_solver *d);
 void	do_rrr(t_solver *d);
 void	do_pa(t_solver *d);
 void	do_pb(t_solver *d);
-void	do_op(t_solver *d, unsigned char op);
+void	do_op(t_solver *d, char op);
 
 // build.c
 void	build_stack(t_solver *d);
@@ -186,12 +188,19 @@ void	write_boolean_flags(t_stack *head, int *lis_len, int *lis_sub,
 		int num_elem);
 void	write_lis(t_solver *d);
 
-// ?
-// also may need a sub-func given complexity
-int		get_pivot(t_solver *d); // 4th
-void	push_non_lis(t_solver *d); // 5th
-void	push_back(t_solver *d); // 6th, extremely complex, needs a ton of sub funcs
-void	rotate_into_order(t_solver *d); // 7th, easy
+// pivot.c
+int		get_pivot(t_stack *head, int *arr);
+
+// push_ahead.c
+void	push_ahead(t_solver *d);
+
+// push_back_cost.c
+// push_back.c
+void	compute_next_move(t_stack *stacka, t_stack *stackb, int *len, int *rot);
+void	push_back(t_solver *d);
+
+// final_rotate.c
+void	final_rotate(t_solver *d);
 
 // exit.c
 void	exit_prog(t_solver d, unsigned char retval);

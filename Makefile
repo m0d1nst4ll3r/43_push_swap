@@ -6,7 +6,7 @@
 #    By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 10:29:07 by rapohlen          #+#    #+#              #
-#    Updated: 2025/12/19 15:04:13 by rapohlen         ###   ########.fr        #
+#    Updated: 2026/01/06 05:01:00 by rapohlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,26 @@ CFILESCH			= main.c \
 					  ops_s.c \
 					  util.c
 
-CFILESSO			= 
+CFILESSO			= main.c \
+					  util.c \
+					  stack_util.c \
+					  op_util.c \
+					  op_timize.c \
+					  op_p.c \
+					  op_r.c \
+					  op_rr.c \
+					  op_s.c \
+					  op.c \
+					  build.c \
+					  lis.c \
+					  lis_get.c \
+					  lis_write.c \
+					  pivot.c \
+					  push_ahead.c \
+					  push_back.c \
+					  push_back_cost.c \
+					  final_rotate.c \
+					  exit.c
 
 SRCDIRCH			= src/checker
 SRCDIRSO			= src/solver
@@ -37,12 +56,12 @@ INC					= inc \
 LIB					= libft/libft.a
 
 CC					= cc
-CFLAGS				= -Wall -Wextra -Werror -g
+CFLAGS				= -Wall -Wextra -Werror
 CPPFLAGS			= $(addprefix -I,$(INC)) -MMD -MP
 MAKEFLAGS			+= --no-print-directory -j
 
 NAMECH				= checker
-#NAMESO				= push_swap
+NAMESO				= push_swap
 NAME				= $(NAMECH) $(NAMESO)
 
 all:				$(NAME)

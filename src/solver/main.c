@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/05 20:01:16 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 04:53:46 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void	init_prog(t_solver *d, int ac, char **av)
 		error_out(*d);
 }
 
+// See header file for program steps
 int	main(int ac, char **av)
 {
 	t_solver	data;
@@ -68,7 +69,7 @@ int	main(int ac, char **av)
 	write_lis(data);
 	data.pivot = get_pivot(data.stacka, data.lis_len);
 	push_ahead(&data);
-	push_back(&data); // LAST TODO HARDEST PART
+	push_back(&data);
 	final_rotate(&data);
 	optimize_op_list(&data.op_list);
 	print_op_list(data.op_list, data.op_strings);
