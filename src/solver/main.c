@@ -6,7 +6,7 @@
 /*   By: rapohlen <rapohlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:52:48 by rapohlen          #+#    #+#             */
-/*   Updated: 2026/01/06 20:30:28 by rapohlen         ###   ########.fr       */
+/*   Updated: 2026/01/06 20:32:14 by rapohlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,9 @@ static void	init_prog(t_solver *d, int ac, char **av)
 
 static void	optimize_3(t_solver *d, t_stack *head)
 {
-	if (head->val > head->next->val
-		&& head->val < head->prev->val)
+	if (head->val > head->next->val && head->val < head->prev->val)
 		do_op(d, SA);
-	else if (head->prev->val > head->val
-			&& head->prev->val < head->next->val)
+	else if (head->prev->val > head->val && head->prev->val < head->next->val)
 	{
 		do_op(d, RRA);
 		do_op(d, SA);
