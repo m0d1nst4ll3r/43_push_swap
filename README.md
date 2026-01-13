@@ -13,27 +13,38 @@ The numbers are added to a "stack" (a list of ints), this is stack A. There is a
 - The first argument ends up at the top (beginning) of stack A. The last argument ends up at the bottom (end).
 
 They then need to be sorted in ascending order, with 8 different operations:
-- pa    If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
-- pb    - (same, A->B)
-- sa    If A has more than one element, swap its position with the second element.
-- sb    - (same, for B)
-- ra    If A has more than one element, move its first (topmost) element to the end (bottom)
-- rb    -
-- rra   If A has more than one element, move its last (bottom) element to the beginning (top)
-- rrb   -
+- pa
+	- If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
+- pb
+	- - (same, A->B)
+- sa
+	- If A has more than one element, swap its position with the second element.
+- sb
+	- - (same, for B)
+- ra
+	- If A has more than one element, move its first (topmost) element to the end (bottom)
+- rb
+	- -
+- rra
+	- If A has more than one element, move its last (bottom) element to the beginning (top)
+- rrb
+	- -
 
 There are 3 more operations that are combinations of existing operations:
-- ss	sa + sb
-- rr	ra + rb
-- rrr	rra + rrb
+- ss
+	- sa + sb
+- rr
+	- ra + rb
+- rrr
+	- rra + rrb
 
 The program has to print a list of operations that will sort stack A in ascending order completely. Stack B has to be empty. The less operations, the better.
 
-For 100% completion:
-- Sort 3 numbers in <= 2 moves
--      5         in <= 12 moves
--      100       in <= 702 moves
--      500       in <= 5500 moves
+For 100% completion, program has to sort:
+- 3 numbers     in <= 2 moves
+- 5 numbers     in <= 12 moves
+- 100 numbers   in <= 702 moves
+- 500 numbers   in <= 5500 moves
 
 ## Instructions
 
