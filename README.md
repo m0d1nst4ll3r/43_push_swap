@@ -13,14 +13,14 @@ The numbers are added to a "stack" (a list of ints), this is stack A. There is a
 - The first argument ends up at the top (beginning) of stack A. The last argument ends up at the bottom (end).
 
 They then need to be sorted in ascending order, with 8 different operations:
-- pa	If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
-- pb	- (same, A->B)
-- sa	If A has more than one element, swap its position with the second element.
-- sb	- (same, for B)
-- ra	If A has more than one element, move its first (topmost) element to the end (bottom)
-- rb	-
-- rra	If A has more than one element, move its last (bottom) element to the beginning (top)
-- rrb	-
+- pa    If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
+- pb    - (same, A->B)
+- sa    If A has more than one element, swap its position with the second element.
+- sb    - (same, for B)
+- ra    If A has more than one element, move its first (topmost) element to the end (bottom)
+- rb    -
+- rra   If A has more than one element, move its last (bottom) element to the beginning (top)
+- rrb   -
 
 There are 3 more operations that are combinations of existing operations:
 - ss	sa + sb
@@ -43,7 +43,7 @@ For 100% completion:
 - `ARG="2 1 3"; ./push_swap $ARG | wc -l`
 - `ARG="2 1 3"; ./push_swap $ARG | ./checker $ARG`
 
-See resources for tester/visualizer
+See resources for tester/visualizer.
 
 ## Resources
 
