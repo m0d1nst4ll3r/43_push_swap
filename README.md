@@ -16,19 +16,19 @@ They then need to be sorted in ascending order, with 8 different operations:
 - pa
 	- If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
 - pb
-	- - (same, A->B)
+	- \- (same, A->B)
 - sa
 	- If A has more than one element, swap its position with the second element.
 - sb
-	- - (same, for B)
+	- \- (same, for B)
 - ra
 	- If A has more than one element, move its first (topmost) element to the end (bottom)
 - rb
-	- -
+	- \-
 - rra
 	- If A has more than one element, move its last (bottom) element to the beginning (top)
 - rrb
-	- -
+	- \-
 
 There are 3 more operations that are combinations of existing operations:
 - ss
