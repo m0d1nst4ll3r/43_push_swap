@@ -1,61 +1,62 @@
-# 43\_push\_swap
+*This project has been created as part of the 42 curriculum by rapohlen*
 
-Checker done. Pretty useless, but hey.
+[Subject](https://cdn.intra.42.fr/pdf/pdf/192339/en.subject.pdf)
 
-For checker, used 1-way chained lists. Also used a 1-way list for operations.
+## Description
 
-I can't see the upside of a 2-way list. But I haven't looked at sorting algorithms yet...
+Program receives a list of numbers as arguments :
+- Numbers must fit in an int and cannot be duplicates.
+- In case of bad number or duplicate, print "Error".
+- In case of missing arguments, return 0.
 
-Re-using the same skeleton as the checker for the actual prog is probably a good idea. Implementing functions to copy the stacks will be useful to sort several times using different algorithms and compare how long the operations list is. Same thing for op list (having several will be useful).
+The numbers are added to a "stack" (a list of ints), this is stack A. There is a stack B, originally empty.
+- The first argument ends up at the top (beginning) of stack A. The last argument ends up at the bottom (end).
 
-All that's left now, apart from re-using everything from checker to make a solver version, is to look at sorting, which is the ACTUAL hard part.
+They then need to be sorted in ascending order, with 8 different operations:
+- pa	If B is not empty, take its first (topmost) element, add it to the beginning (top) of A
+- pb	- (same, A->B)
+- sa	If A has more than one element, swap its position with the second element.
+- sb	- (same, for B)
+- ra	If A has more than one element, move its first (topmost) element to the end (bottom)
+- rb	-
+- rra	If A has more than one element, move its last (bottom) element to the beginning (top)
+- rrb	-
 
-### How-to
+There are 3 more operations that are combinations of existing operations:
+- ss	sa + sb
+- rr	ra + rb
+- rrr	rra + rrb
 
-Strategy I'm going to follow:
+The program has to print a list of operations that will sort stack A in ascending order completely. Stack B has to be empty. The less operations, the better.
 
-https://medium.com/@dansylvain84/my-implementation-of-the-42-push-swap-project-2706fd8c2e9f
+For 100% completion:
+- Sort 3 numbers in <= 2 moves
+-      5         in <= 12 moves
+-      100       in <= 702 moves
+-      500       in <= 5500 moves
 
-Gonna try to implement this since it seems "good enough". We'll see what we do after that. Turn in, or try to do even better. Or try different ways just to compare.
+## Instructions
 
-Don't really need a 2-way list for this. 1-way works just fine.
+1. Run `make` (checker is also compiled)
+2. `./push_swap [...]`
+3. Examples for checking:
+- `ARG="2 1 3"; ./push_swap $ARG | wc -l`
+- `ARG="2 1 3"; ./push_swap $ARG | ./checker $ARG`
 
-Another strategy I heard about:
+See resources for tester/visualizer
 
-Divide your numbers in 3 groups, one lowest, one highest, one middle group. Start pushing to B, doing basically "ra ra pb ra ra ra pb" and push members of the 3rd group to the top of B, and members of the 2nd group to the bottom of B. Only the lowest values are left in A - push them all to B until 2 values remain in A, swap them if needed then start pushing to A - this way B is already sorta-sorted. You can then start pushing back to A and sorting the values, calculating the lowest cost operations (not sure on the details but there you go).
+## Resources
 
-### Tester
+Algorithm description - https://medium.com/@dansylvain84/my-implementation-of-the-42-push-swap-project-2706fd8c2e9f
 
-https://github.com/SimonCROS/push_swap_tester
+LIS Algorithm (only length) - https://www.youtube.com/watch?v=on2hvxBXJH4
 
-### Progress
+LIS Algorithm (finding values) - https://www.youtube.com/watch?v=E6us4nmXTHs
 
-All done except:
-- LIS building (halfway done, got lis addr, need to calculate actual lis and set bool flags)
-- Pivot calculating (should be easy, do a bubble sort)
-- First push (should be very easy, if no bool flag then pb if < pivot and pb rb otherwise)
-- Push back (this is most of what's remaining - about half of the project, this is fairly complex)
-- Rotate back (this is very easy)
-- Optimize list (strictly speaking this is done but I can optimize further)
+Random Number Generator - https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
 
-Final touch that I can work on right now instead of delaying it:
-- My current system has a key for each action
-- Instead, I can use bit masking
-- pa 1, pb 2, sa 4, sb 8, ra 16, rb 32, rra 64, rrb 128
-- Handy because you only have 8 actions, rr, rrr and ss are just combinations of 2 actions
-- E.g rr is ra + rb (0b00110000)
-- There is absolutely no point in doing this rather than my current system other than swag
-- One fringe advantage to this is testing values faster instead of going `op == RA_KEY || op == RB_KEY` you go `op & (RA | RB)`, very cool
+Tester - https://github.com/SimonCROS/push_swap_tester
 
-PS: In the end, not gonna do this, because it involves rewriting too much. Rip swag. For posterity this is what the macros would've looked like. My dreams are shattered.
-```# define PA			0b00000001
-# define PB			0b00000010
-# define SA			0b00000100
-# define SB			0b00001000
-# define RA			0b00010000
-# define RB			0b00100000
-# define RRA		0b01000000
-# define RRB		0b10000000
-# define SS			SA | SB
-# define RR			RA | RB
-# define RRR		RRA | RRB```
+Visualizer - https://github.com/o-reo/push_swap_visualizer
+
+AI use: none
