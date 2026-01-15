@@ -43,7 +43,7 @@ The program has to print a list of operations that will sort stack A in ascendin
 For 100% completion, program has to sort:
 - 3 numbers     in <= 2 moves
 - 5 numbers     in <= 12 moves
-- 100 numbers   in <= 702 moves
+- 100 numbers   in <= 700 moves
 - 500 numbers   in <= 5500 moves
 
 ## Instructions
